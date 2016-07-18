@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,11 +17,11 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //Toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
     }
-
+    //Optional Menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -29,11 +30,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.exit:
                 return true;
             case R.id.about:
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+    //Search cities
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -59,5 +62,8 @@ public class MainActivity extends AppCompatActivity {
         });
         return super.onCreateOptionsMenu(menu);
     }
+    //Refresh button
+    public void selfDestruct(View view){
 
+    }
 }
