@@ -1,16 +1,20 @@
 package com.androidweather.newappweather;
 
+import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,28 +24,15 @@ public class MainActivity extends AppCompatActivity {
         //Toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-    }
-    //Optional Menu
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-        case R.id.settings:
-                return true;
-            case R.id.exit:
-                return true;
-            case R.id.about:
 
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
+
     //Search cities
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.my_menu, menu);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.my_menu, menu);
 
         MenuItem searchItem = menu.findItem(R.id.location);
 
@@ -66,4 +57,22 @@ public class MainActivity extends AppCompatActivity {
     public void selfDestruct(View view){
 
     }
+
+    //Optional Menu
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case R.id.settings:
+            //start settings
+            startActivity(new Intent(this, MyPreferencesActivity.class));
+            return true;
+            case R.id.exit:
+                return true;
+            case R.id.about:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }
