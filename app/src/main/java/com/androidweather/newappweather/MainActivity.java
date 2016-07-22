@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+
 public class MainActivity extends AppCompatActivity{
 
     @Override
@@ -24,7 +25,6 @@ public class MainActivity extends AppCompatActivity{
         //Toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-
     }
 
     //Search cities
@@ -64,7 +64,8 @@ public class MainActivity extends AppCompatActivity{
         switch (item.getItemId()) {
         case R.id.settings:
             //start settings
-            startActivity(new Intent(this, MyPreferencesActivity.class));
+           Intent i =new Intent(this, MyPreferencesActivity.class);
+            startActivity(i);
             return true;
             case R.id.exit:
                 return true;
