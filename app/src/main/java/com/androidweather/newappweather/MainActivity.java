@@ -1,21 +1,19 @@
 package com.androidweather.newappweather;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-
 
 public class MainActivity extends AppCompatActivity{
+
+    Intent intent=new Intent();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +23,8 @@ public class MainActivity extends AppCompatActivity{
         //Toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-    }
 
+     }
     //Search cities
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,15 +55,15 @@ public class MainActivity extends AppCompatActivity{
     public void selfDestruct(View view){
 
     }
-
     //Optional Menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
         case R.id.settings:
             //start settings
-           Intent i =new Intent(this, MyPreferencesActivity.class);
-            startActivity(i);
+            Intent intent=new Intent();
+            intent.setClassName(this,"com.androidweather.newappweather.MyPreferenceActivity");
+            startActivity(intent);
             return true;
             case R.id.exit:
                 return true;
