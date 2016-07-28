@@ -11,7 +11,8 @@
     <string name="default_temp_unit">Celsius</string>
     <string name="key_pref_unit">key_pref</string>
 
-    <string name="label">PrefActivity</string>
+    <string name="label_EditLocationView">Location</string>
+    <string name="key_EditLocationView">key_Location</string>
 
 
 

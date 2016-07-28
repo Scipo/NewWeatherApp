@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <header
         android:fragment="com.androidweather.newappweather.MyPreferenceFragment"
-        android:title="Temperature changer"
+        android:title="Settings"
         android:summary="git preferences">
     </header>
 </preference-headers>

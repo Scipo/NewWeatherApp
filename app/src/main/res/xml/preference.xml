@@ -10,4 +10,10 @@
     android:entryValues="@array/lvalues"
     android:onClick="MyPreferencesActivity"
  />
+    <EditTextPreference
+        android:title="@string/label_EditLocationView"
+        android:key="@string/key_EditLocationView"
+        android:defaultValue="Sofia"
+        android:editable="true"/>
+
 </PreferenceScreen>

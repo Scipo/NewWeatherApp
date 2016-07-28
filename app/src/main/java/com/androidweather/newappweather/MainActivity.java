@@ -65,8 +65,6 @@ public class MainActivity extends AppCompatActivity{
             intent.setClassName(this,"com.androidweather.newappweather.MyPreferenceActivity");
             startActivity(intent);
             return true;
-            case R.id.exit:
-                return true;
             case R.id.about:
                 return true;
             default:
