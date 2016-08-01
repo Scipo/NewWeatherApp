@@ -20,7 +20,8 @@ public class LocationAndCoordinates {
         this.sunrise = 0;
      }
 
-    public LocationAndCoordinates(float longitude, float latitude, String country, String city, long sunset, long sunrise) {
+    public LocationAndCoordinates(float longitude, float latitude, String country, String city,
+                                  long sunset, long sunrise) {
         this.longitude = longitude;
         this.latitude = latitude;
         this.country = country;
