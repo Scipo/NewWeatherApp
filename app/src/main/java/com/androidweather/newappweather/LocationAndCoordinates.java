@@ -7,6 +7,7 @@ public class LocationAndCoordinates {
     private float longitude;
     private float latitude;
     private String country;
+    private String region;
     private String city;
     private long sunset;
     private long sunrise;
@@ -15,16 +16,18 @@ public class LocationAndCoordinates {
         this.longitude = 0;
         this.latitude = 0;
         this.country = "NoCountry";
+        this.region="NoRegion";
         this.city = "NoCity";
         this.sunset = 0;
         this.sunrise = 0;
      }
 
-    public LocationAndCoordinates(float longitude, float latitude, String country, String city,
+    public LocationAndCoordinates(float longitude, float latitude, String country,String region, String city,
                                   long sunset, long sunrise) {
         this.longitude = longitude;
         this.latitude = latitude;
         this.country = country;
+        this.region=region;
         this.city = city;
         this.sunset = sunset;
         this.sunrise = sunrise;
@@ -40,6 +43,10 @@ public class LocationAndCoordinates {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public void setRegion(String region){
+        this.region=region;
     }
 
     public void setCity(String city) {
@@ -64,6 +71,10 @@ public class LocationAndCoordinates {
 
     public String getCountry() {
         return country;
+    }
+
+    public String getRegion(){
+        return region;
     }
 
     public String getCity() {
