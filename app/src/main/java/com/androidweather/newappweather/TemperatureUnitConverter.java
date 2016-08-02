@@ -13,7 +13,4 @@ public class TemperatureUnitConverter {
    public static int KMH(float kil){
        return (int) Math.round(kil * 0.2778);
    }
-
-
-
 }
