@@ -2,14 +2,18 @@ package com.androidweather.newappweather;
 
 public class TemperatureUnitConverter {
 
-    public static float celsiusToFahrenheit(float celsius){
-        return ((celsius * 9) / 5) + 32;
-        //return Math.round(((celsius * 1.8) + 32) *10.0)/10.0;
-    }
+  public static float Celsius(float tmp){
+      return (int)Math.round((tmp-32)/1.8);
+  }
 
-    public static float fahrenheitToCelsius(float fahrenheit){
-        return ((fahrenheit - 32) * 5 / 9);
-        //return Math.round(((fahrenheit/1.8) - 32 )*10.0)/10.0;
-    }
+   public static int fahrenheit(float tmp){
+        return (int)Math.round((tmp-273.15)*1.8+32);
+   }
+
+   public static int KMH(float kil){
+       return (int) Math.round(kil * 0.2778);
+   }
+
+
 
 }
