@@ -52,7 +52,7 @@ public enum  WeatherCodes{
     PARTLY_CLOUD(44, R.string.weather_text_044),
     THUNDERSHOWERS(45, R.string.weather_text_045),
     SNOW_SHOWERS(46, R.string.weather_text_046),
-    ISOLATED_THUDERSHOWERS(47, R.string.weather_text_047),
+    ISOLATED_THUNDER_SHOWERS(47, R.string.weather_text_047),
     NOT_AVAILABLE(1000, R.string.weather_text_1000);
 
     private int code;
