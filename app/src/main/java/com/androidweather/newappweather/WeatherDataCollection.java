@@ -12,6 +12,10 @@ public class WeatherDataCollection extends WeatherDataCollectionAbstract {
             private float chill;
             private float gust;
 
+            public Wind(){
+
+            }
+
             public Wind(float speed, float deg, float chill, float gust) {
                 this.speed = speed;
                 this.deg = deg;
@@ -63,6 +67,9 @@ public class WeatherDataCollection extends WeatherDataCollectionAbstract {
         private float minTemp;
         private float maxTemp;
 
+        public Temperature(){
+
+        }
         public Temperature(float temp,float minTemp,float maxTemp){
             this.temp=temp;
             this.minTemp=minTemp;
@@ -95,6 +102,10 @@ public class WeatherDataCollection extends WeatherDataCollectionAbstract {
         private float pressure;
         private float humidity;
         private float visibility;
+
+        public Conditions(){
+
+        }
 
         public Conditions(float pressure,float humidity, float visibility){
             this.pressure=pressure;
@@ -131,6 +142,10 @@ public class WeatherDataCollection extends WeatherDataCollectionAbstract {
         private float amount;
         private float chance;
 
+        public Rain(){
+
+        }
+
         public Rain(String time, float amount,float chance){
             this.time=time;
             this.amount=amount;
@@ -166,6 +181,10 @@ public class WeatherDataCollection extends WeatherDataCollectionAbstract {
         private float amount;
         private float chance;
 
+        public Snow(){
+
+        }
+
         public Snow(String time,float amount,float chance){
             this.time=time;
             this.amount=amount;
@@ -200,6 +219,9 @@ public class WeatherDataCollection extends WeatherDataCollectionAbstract {
    public static class Clouds extends WeatherDataCollectionAbstract.Clouds{
        private int percentage;
 
+       public Clouds(){
+
+       }
        public Clouds(int percentage) {
            this.percentage = percentage;
        }
@@ -214,23 +236,24 @@ public class WeatherDataCollection extends WeatherDataCollectionAbstract {
        }
    }
 
-    private Wind wind;
-    private Temperature temperature;
-    private Conditions humidity;
-    private Conditions pressure;
+    public Wind wind=new Wind();
+    public Temperature temperature=new Temperature();
+    public Conditions currentCondition=new Conditions();
+    public Snow snow = new Snow();
+    public Rain rain = new Rain();
+    public Clouds clouds=new Clouds();
+    public LocationAndCoordinates locationAndCoordinates= new LocationAndCoordinates();
 
     public float getTemp (){
         return temperature.getTemp();
     }
     public float getHumidity (){
-        return humidity.getHumidity();
+        return currentCondition.getHumidity();
     }
     public float getPressure (){
-        return pressure.getPressure();
+        return currentCondition.getPressure();
     }
-
     public float getWindSpeed (){
         return wind.getSpeed();
     }
-
 }
