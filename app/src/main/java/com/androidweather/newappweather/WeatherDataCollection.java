@@ -3,189 +3,234 @@ package com.androidweather.newappweather;
 /**
  * Created by Home on 1.8.2016 г..
  */
-import org.json.JSONObject;
-
 public class WeatherDataCollection extends WeatherDataCollectionAbstract {
 
 
         public static class Wind extends WeatherDataCollectionAbstract.Wind{
+            private float speed;
+            private float deg;
+            private float chill;
+            private float gust;
 
-        private final float speed;
-        private final int deg;
-        private final float gust;
+            public Wind(float speed, float deg, float chill, float gust) {
+                this.speed = speed;
+                this.deg = deg;
+                this.chill = chill;
+                this.gust = gust;
+            }
 
-        public Wind(JSONObject json){
-            this.speed=(float)json.optDouble(Wind.JSpeed);
-            this.deg=json.optInt(Wind.JDeg,Integer.MIN_VALUE);
-            this.gust=(float)json.optDouble(Wind.JGust);
+            public void setSpeed(float speed) {
+                this.speed = speed;
+            }
 
-        }
+            public void setDeg(float deg) {
+                this.deg = deg;
+            }
 
-        public boolean isSpeed(){
-            return !Float.isNaN(this.speed);
+            public void setChill(float chill) {
+                this.chill = chill;
+            }
+
+            public void setGust(float gust) {
+                this.gust = gust;
+            }
+
+            @Override
+            public float getSpeed() {
+                return speed;
+            }
+
+            @Override
+            public float getDeg() {
+                return deg;
+            }
+
+            @Override
+            public float getChill() {
+                return chill;
+            }
+
+            @Override
+            public float getGust() {
+                return gust;
+            }
         }
-        public float getSpeed(){
-            return this.speed;
-        }
-        public boolean isDegree(){
-            return this.deg!=Integer.MIN_VALUE;
-        }
-        public int getDeg(){
-            return this.deg;
-        }
-        public boolean isGust(){
-            return !Float.isNaN(this.gust);
-        }
-        public float getGust(){
-            return this.gust;
-        }
-     }
 
 
     public static class Temperature extends WeatherDataCollectionAbstract.Temperature{
-            private final float temp;
-            private final float tmp_max;
-            private final float tmp_min;
 
-        public Temperature(JSONObject json){
-            this.temp=(float)json.optDouble(Temperature.JTemperature);
-            this.tmp_max=(float) json.optDouble(Temperature.JTemperatureMAX);
-            this.tmp_min=(float) json.optDouble(Temperature.JTemperatureMin);
-        }
-        public  boolean isTemperature(){
-            return !Float.isNaN(this.temp);
-        }
-        public float getTemp (){
-            return this.temp;
-        }
-        public boolean isTmpMin(){
-            return !Float.isNaN(this.tmp_min);
-        }
+        private float temp;
+        private float minTemp;
+        private float maxTemp;
 
-        public float getTempMin (){
-            return this.tmp_min;
+        public Temperature(float temp,float minTemp,float maxTemp){
+            this.temp=temp;
+            this.minTemp=minTemp;
+            this.maxTemp=maxTemp;
         }
-
-        public boolean isTempMax(){
-            return !Float.isNaN(this.tmp_max);
+        public void setTemp(float temp){
+            this.temp=temp;
         }
-        public float getTempMax (){
-            return this.tmp_max;
+        public void setMinTemp(float minTemp){
+            this.minTemp=minTemp;
         }
-
-    }
-    public static class Humidity extends WeatherDataCollectionAbstract.Humidity{
-        private final float humidity;
-        private final float pressure;
-
-            public Humidity(JSONObject json){
-            this.humidity=(float)json.optDouble(Humidity.JHumidity);
-            this.pressure=(float)json.optDouble(Humidity.JPressure);
+        public void setMaxTemp(float maxTemp){
+            this.maxTemp=maxTemp;
         }
-        public boolean isHumidity(){
-            return !Float.isNaN(this.humidity);
+        @Override
+        public float getTemp(){
+            return temp;
         }
-        public float getHumidity(){
-            return this.humidity;
+        @Override
+        public float getMinTemp(){
+            return minTemp;
         }
-
-        public boolean isPressure(){
-            return !Float.isNaN(this.pressure);
-        }
-        public float getPressure (){
-            return this.pressure;
+        @Override
+        public float getMaxTemp(){
+            return maxTemp;
         }
 
     }
+    public static class Conditions extends WeatherDataCollectionAbstract.Conditions{
+        private float pressure;
+        private float humidity;
+        private float visibility;
 
-    public static class Snow{
-        private String time;
-        private float amount;
-
-        public void setTime(String time){
-            this.time=time;
-        }
-        public String getTime(){
-            return this.time;
-        }
-        public void setAmount(float amount){
-            this.amount=amount;
-        }
-        public float getAmount(){
-            return this.amount;
-        }
-     }
-
-    public static class Rain{
-        private String time;
-        private float amount;
-
-        public void setTime(String time){
-            this.time=time;
-        }
-        public String getTime(){
-            return this.time;
-        }
-        public void setAmount(float amount){
-            this.amount=amount;
-        }
-        public float getAmount(){
-            return this.amount;
-        }
-
-    }
-
-    public  class Clouds {
-        private int visibility;
-        public void setVisibility(int visibility){
+        public Conditions(float pressure,float humidity, float visibility){
+            this.pressure=pressure;
+            this.humidity=humidity;
             this.visibility=visibility;
         }
-        public int getVisibility(){
+        public void setPressure(float pressure){
+            this.pressure=pressure;
+        }
+        public void setHumidity(float humidity){
+            this.humidity=humidity;
+        }
+        public void setVisibility(float visibility){
+            this.visibility=visibility;
+        }
+
+        @Override
+        public float getPressure() {
+            return pressure;
+        }
+
+        @Override
+        public float getHumidity() {
+            return humidity;
+        }
+
+        @Override
+        public float getVisibility() {
             return visibility;
         }
-
     }
-    ///////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////
+    public static class Rain extends WeatherDataCollectionAbstract.Rain{
+        private String time;
+        private float amount;
+        private float chance;
+
+        public Rain(String time, float amount,float chance){
+            this.time=time;
+            this.amount=amount;
+            this.chance=chance;
+        }
+        public void setTime(String time){
+            this.time=time;
+        }
+        public void setAmount(float amount){
+            this.amount=amount;
+        }
+        public void setChance(float chance){
+            this.chance=chance;
+        }
+
+        @Override
+        public String getTime() {
+            return time;
+        }
+
+        public float getAmount() {
+            return amount;
+        }
+
+        @Override
+        public float getChance() {
+            return chance;
+        }
+    }
+
+    public static class Snow extends WeatherDataCollectionAbstract.Snow{
+        private String time;
+        private float amount;
+        private float chance;
+
+        public Snow(String time,float amount,float chance){
+            this.time=time;
+            this.amount=amount;
+            this.chance=chance;
+        }
+        public void setTime(String time){
+            this.time=time;
+        }
+        public  void setAmount(float amount){
+            this.amount=amount;
+        }
+        public void setChance(float chance){
+            this.chance=chance;
+        }
+
+        @Override
+        public String getTime() {
+            return time;
+        }
+
+        @Override
+        public float getAmount() {
+            return amount;
+        }
+
+        @Override
+        public float getChance() {
+            return chance;
+        }
+    }
+
+   public static class Clouds extends WeatherDataCollectionAbstract.Clouds{
+       private int percentage;
+
+       public Clouds(int percentage) {
+           this.percentage = percentage;
+       }
+
+       public void setPercentage(int percentage) {
+           this.percentage = percentage;
+       }
+
+       @Override
+       public int getPercentage() {
+           return percentage;
+       }
+   }
+
     private Wind wind;
     private Temperature temperature;
-    private Humidity humidity;
-    private Humidity pressure;
+    private Conditions humidity;
+    private Conditions pressure;
 
     public float getTemp (){
-        if(this.temperature.isTemperature()){
-            return this.temperature.getTemp();
-        }
-        return Float.NaN;
+        return temperature.getTemp();
     }
     public float getHumidity (){
-        if(this.humidity.isHumidity()){
-            return this.humidity.getHumidity();
-        }
-        return Float.NaN;
+        return humidity.getHumidity();
     }
     public float getPressure (){
-        if(this.pressure.isPressure()){
-            return this.pressure.getPressure();
-        }
-        return Float.NaN;
+        return pressure.getPressure();
     }
 
-    public int getWindDeg () {
-        if (this.wind.isDegree())
-            return this.wind.getDeg ();
-        return Integer.MIN_VALUE;
-    }
-    public float getWindSpeed () {
-        if (this.wind.isSpeed ())
-            return this.wind.getSpeed ();
-        return Float.NaN;
-    }
-
-    public float getWindGust () {
-        if (this.wind.isGust ())
-            return this.wind.getGust ();
-        return Float.NaN;
+    public float getWindSpeed (){
+        return wind.getSpeed();
     }
 
 }

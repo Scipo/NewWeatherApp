@@ -55,6 +55,8 @@ public class CityBuilder {
     public float getLatitude(){
         return latitude;
     }
+
+    @Override
     public String toString(){
         return this.name+", "+this.region+", "+this.country;
     }
@@ -95,8 +97,6 @@ public class CityBuilder {
         }
 
     }
-
-
 
 }
 
