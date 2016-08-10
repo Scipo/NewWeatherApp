@@ -2,9 +2,6 @@ package com.androidweather.newappweather;
 
 import android.content.Context;
 
-/**
- * Created by Home on 2.8.2016 г..
- */
 public enum  WeatherCodes{
     TORNADO(0, R.string.weather_text_000),
     TROPICAL_STORM(1, R.string.weather_text_001),

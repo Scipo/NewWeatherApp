@@ -1,8 +1,5 @@
 package com.androidweather.newappweather;
 
-/**
- * Created by Home on 29.7.2016 г..
- */
 abstract public class WeatherDataCollectionAbstract {
 
     static abstract public class Temperature{
@@ -67,7 +64,6 @@ abstract public class WeatherDataCollectionAbstract {
     abstract public float getHumidity ();
     abstract public float getPressure ();
     abstract public float getWindSpeed ();
-
 }
 
 
